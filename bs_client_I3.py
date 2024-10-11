@@ -19,9 +19,11 @@ try:
     message = input()
 
     if type(message) is not str:
-        raise TypeError("C'est pas une string ça")
+        print("C'est pas une string ça")
+        raise TypeError
     elif not re.search("^.*(meo|waf).*$", message):
-        raise ValueError("Faut dire meo ou waf en fait")
+        print("Faut dire meo ou waf en fait")
+        raise ValueError
     
     s.sendall(message.encode('utf-8'))
 
@@ -34,8 +36,7 @@ try:
     # Affichage de la réponse reçue du serveur
     print(f"Le serveur a répondu {repr(data)}")
     print(f'Connecté avec succès au serveur {host} sur le port {port}')
-except Exception as e:
-    print(e)
+except Exception:
     print('Ca a bug ptdrrr')
 
 sys.exit(0)
