@@ -59,3 +59,12 @@ Données reçues du client : salut c'est meo
 ```
 
 ## 3. You say client I hear control
+
+### Client :
+```
+[toto@bsclient b2-resequ-dev-tp4]$ python bs_client_I3.py
+Que veux-tu envoyer au serveur :
+salut c'est meo
+Le serveur a répondu 'Meo à toi confrère.'
+Connecté avec succès au serveur 10.4.4.11 sur le port 13337
+```

@@ -34,7 +34,7 @@ try:
     # Affichage de la réponse reçue du serveur
     print(f"Le serveur a répondu {repr(data)}")
     print(f'Connecté avec succès au serveur {host} sur le port {port}')
-except :
+except Exception as e:
     print('Ca a bug ptdrrr')
 
 sys.exit(0)
