@@ -18,7 +18,7 @@ message = input()
 s.sendall(message.encode('utf-8'))
 
 # On reçoit 1024 bytes qui contiennent peut-être une réponse du serveur
-data = s.recv(1024)
+data = s.recv(1024).decode("utf-8")
 
 # On libère le socket TCP
 s.close()
