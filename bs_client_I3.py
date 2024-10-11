@@ -20,7 +20,7 @@ try:
 
     if type(message) is not str:
         raise TypeError("C'est pas une string ça")
-    elif not re.search("^(meo|waf)$", message):
+    elif not re.search("^.*(meo|waf).*$", message):
         raise ValueError("Faut dire meo ou waf en fait")
     
     s.sendall(message.encode('utf-8'))
