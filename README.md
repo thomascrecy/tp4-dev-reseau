@@ -42,3 +42,20 @@ LISTEN 0      1          10.4.4.11:13337      0.0.0.0:*    users:(("python",pid=
 ```
 
 ## 2. User friendly
+
+### Client :
+```
+[toto@bsclient b2-resequ-dev-tp4]$ python bs_client_I2.py
+Que veux-tu envoyer au serveur :
+salut c'est meo
+Le serveur a répondu 'Meo à toi confrère.'
+Connecté avec succès au serveur 10.4.4.11 sur le port 13337
+```
+### Serveur :
+```
+[toto@bsserver b2-resequ-dev-tp4]$ python bs_server_I2.py
+Un client vient de se co et son IP c'est ('10.4.4.12', 50236).
+Données reçues du client : salut c'est meo
+```
+
+## 3. You say client I hear control
