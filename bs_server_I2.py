@@ -23,7 +23,7 @@ while True:
 
     try:
         # On reçoit 1024 bytes de données
-        data = conn.recv(1024)
+        data = conn.recv(1024).decode("utf-8")
 
         # Si on a rien reçu, on continue
         if not data: break
