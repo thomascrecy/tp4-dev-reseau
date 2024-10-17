@@ -1,8 +1,8 @@
 import argparse
 import socket
-import sys
-import subprocess
 import psutil
+import subprocess
+import sys
 
 def get_local_ips():
     ip_list = []
@@ -22,17 +22,14 @@ parser = argparse.ArgumentParser(
     description="Démarrer un serveur sur une adresse IP et un port spécifique."
 )
 
-# On ajoute la gestion de l'option -p ou --port
-# "store" ça veut dire qu'on attend un argument à -n
-# on va stocker l'argument dans une variable
+# On ajoute la gestion de l'option -l ou --listen
 parser.add_argument("-l", "--listen", type=str, action="store", required=True, help="Adresse IP que le serv doit écouter")
 parser.add_argument("-p", "--port", type=int, action="store", default=13337, help="Port que le serv doit écouter")
 
 # Permet de mettre à jour notre objet ArgumentParser avec les nouvelles options
 args = parser.parse_args()
 
-
-
+# Validation de l'adresse IP
 try:
     socket.inet_aton(args.listen)
     is_valid_ip = True
@@ -46,29 +43,29 @@ def is_ip_on_machine(ip):
         return ip in ips
     except subprocess.CalledProcessError:
         return False
-    
+
+# Initialisation de host et port
+host = None
+port = args.port  # Défini par défaut
+
 if is_valid_ip:
     if is_ip_on_machine(args.listen):
         host = args.listen
-        
-elif args.listen not in local_ips:
-    print(f"ERROR -l argument invalide. L'adresse IP spécifiée {args.listen} n'est pas portée par la machine.")
-    sys.exit(4)
+    elif args.listen not in local_ips:
+        print(f"ERROR -l argument invalide. L'adresse IP spécifiée {args.listen} n'est pas portée par la machine.")
+        sys.exit(4)
 else:
     print(f"ERROR -l argument invalide. L'adresse {args.listen} n'est pas une adresse IP valide.")
     sys.exit(3)
 
-
-if args.port < 0 or args.port > 65535:
-    print(f"ERROR -p argument invalide. Le port spécifié {args.port} n'est pas un port valide (de 0 à 65535).")
+# Validation du port
+if port < 0 or port > 65535:
+    print(f"ERROR -p argument invalide. Le port spécifié {port} n'est pas un port valide (de 0 à 65535).")
     sys.exit(1)
 
-elif 0 <= args.port <= 1024:
-    print(f"ERROR -p argument invalide. Le port spécifié {args.port} est un port privilégié. Spécifiez un port au dessus de 1024.")
+if 0 <= port <= 1024:
+    print(f"ERROR -p argument invalide. Le port spécifié {port} est un port privilégié. Spécifiez un port au-dessus de 1024.")
     sys.exit(2)
-
-else :
-    port = args.port
 
 # On crée un objet socket
 # SOCK_STREAM c'est pour créer un socket TCP (pas UDP donc)
