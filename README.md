@@ -68,3 +68,18 @@ salut c'est meo
 Le serveur a répondu 'Meo à toi confrère.'
 Connecté avec succès au serveur 10.4.4.11 sur le port 13337
 ```
+### Client erreur : 
+```
+[toto@bsclient b2-resequ-dev-tp4]$ python bs_client_I3.py
+Que veux-tu envoyer au serveur :
+Salut c'est moi
+Faut dire meo ou waf en fait
+Ca a bug ptdrrr
+```
+### Serveur : 
+```
+[toto@bsserver b2-resequ-dev-tp4]$ python bs_server_I2.py
+Un client vient de se co et son IP c'est ('10.4.4.12', 57980).
+```
+
+## II. You say dev I say good practices
