@@ -2,6 +2,20 @@ import argparse
 import socket
 import sys
 import subprocess
+import psutil
+
+def get_local_ips():
+    ip_list = []
+    ip_info = psutil.net_if_addrs()
+    
+    for interface, addrs in ip_info.items():
+        for addr in addrs:
+            if addr.family == socket.AF_INET:
+                ip_list.append(addr.address)
+
+    return ip_list
+
+local_ips = get_local_ips()
 
 # Création d'un objet ArgumentParser
 parser = argparse.ArgumentParser(
@@ -16,6 +30,8 @@ parser.add_argument("-p", "--port", type=int, action="store", default=13337, hel
 
 # Permet de mettre à jour notre objet ArgumentParser avec les nouvelles options
 args = parser.parse_args()
+
+
 
 try:
     socket.inet_aton(args.listen)
@@ -34,9 +50,10 @@ def is_ip_on_machine(ip):
 if is_valid_ip:
     if is_ip_on_machine(args.listen):
         host = args.listen
-    else:
-        print(f"ERROR -l argument invalide. L'adresse {args.listen} n'est pas l'une des adresses IP de cette machine.")
-        sys.exit(4)
+        
+elif args.listen not in local_ips:
+    print(f"ERROR -l argument invalide. L'adresse IP spécifiée {args.listen} n'est pas portée par la machine.")
+    sys.exit(4)
 else:
     print(f"ERROR -l argument invalide. L'adresse {args.listen} n'est pas une adresse IP valide.")
     sys.exit(3)
