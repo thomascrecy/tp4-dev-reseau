@@ -83,3 +83,7 @@ Un client vient de se co et son IP c'est ('10.4.4.12', 57980).
 ```
 
 ## II. You say dev I say good practices
+
+### 🌞 bs_server_II1.py
+### [bs_server_II1.py](https://github.com/thomascrecy/b2-resequ-dev-tp4/blob/main/bs_server_II1.py)
+
