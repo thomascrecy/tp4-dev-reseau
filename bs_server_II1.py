@@ -11,24 +11,8 @@ parser = argparse.ArgumentParser(
 # On ajoute la gestion de l'option -p ou --port
 # "store" ça veut dire qu'on attend un argument à -n
 # on va stocker l'argument dans une variable
-parser.add_argument("-l", "--listen", type=str, action="store", required=True)
-parser.add_argument("-p", "--port", type=int, action="store", default=13337)
-
-parser.add_argument(
-    "-l", "--listen", 
-    type=str, 
-    action="store", 
-    required=True,
-    help="Adresse IP que le serv doit écouter"
-)
-
-parser.add_argument(
-    "-p", "--port", 
-    type=int, 
-    action="store", 
-    default=13337, 
-    help="Port que le serv doit écouter"
-)
+parser.add_argument("-l", "--listen", type=str, action="store", required=True, help="Adresse IP que le serv doit écouter")
+parser.add_argument("-p", "--port", type=int, action="store", default=13337, help="Port que le serv doit écouter")
 
 # Permet de mettre à jour notre objet ArgumentParser avec les nouvelles options
 args = parser.parse_args()
