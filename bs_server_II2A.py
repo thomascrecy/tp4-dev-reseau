@@ -117,6 +117,7 @@ print("Serveur lancé")
 
 # Place le programme en mode écoute derrière le port auquel il s'est bind
 s.listen(1)
+s.settimeout(60)
 logging.info(f"Le serveur tourne sur {host}:{port}")
 timeSave = time.time()
 # On définit l'action à faire quand quelqu'un se connecte : on accepte
