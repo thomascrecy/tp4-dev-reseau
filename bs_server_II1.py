@@ -72,6 +72,7 @@ if 0 <= port <= 1024:
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # On demande à notre programme de se bind sur notre port
 s.bind((host, port))  
+print("Serveur lancé")
 
 # Place le programme en mode écoute derrière le port auquel il s'est bind
 s.listen(1)
