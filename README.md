@@ -1,4 +1,4 @@
-# P4 DEV : Socquettes
+# TP4 DEV : Socquettes
 
 ## I. Simple bs program
 
@@ -84,6 +84,23 @@ Un client vient de se co et son IP c'est ('10.4.4.12', 57980).
 
 ## II. You say dev I say good practices
 
+## 1. Args
+
 ### 🌞 bs_server_II1.py
 ### [bs_server_II1.py](https://github.com/thomascrecy/b2-resequ-dev-tp4/blob/main/bs_server_II1.py)
 
+## 2. Logs
+
+### A. Logs serveur
+
+### 🌞 bs_server_II2A.py
+
+### [bs_server_II2A.py](https://github.com/thomascrecy/b2-resequ-dev-tp4/blob/main/bs_server_II2A.py)
+
+### B. Logs client
+
+### 🌞 bs_client_II2B.py
+
+### [bs_client_II2B.py](https://github.com/thomascrecy/b2-resequ-dev-tp4/blob/main/bs_client_II2B.py)
+
+## III. COMPUTE
