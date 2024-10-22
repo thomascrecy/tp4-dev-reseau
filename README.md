@@ -104,3 +104,10 @@ Un client vient de se co et son IP c'est ('10.4.4.12', 57980).
 ### [bs_client_II2B.py](https://github.com/thomascrecy/b2-resequ-dev-tp4/blob/main/bs_client_II2B.py)
 
 ## III. COMPUTE
+
+### 🌞 bs_client_III.py
+### [bs_client_III.py](https://github.com/thomascrecy/b2-resequ-dev-tp4/blob/main/bs_client_III.py)
+
+### 🌞 bs_server_III.py
+
+### [bs_server_III.py](https://github.com/thomascrecy/b2-resequ-dev-tp4/blob/main/bs_server_III.py)
